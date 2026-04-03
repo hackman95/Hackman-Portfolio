@@ -1,11 +1,11 @@
 /* 
    ============================================================
-   VWC PREWORK CAPSTONE — SITE LOGIC (CORE FEATURES)
+   VWC PREWORK CAPSTONE — CORE SITE LOGIC
    Feature 1: Theme Persistence (localStorage)
    Feature 2: Responsive Navigation (Mobile Toggle)
    Feature 5: Client-side Form Validation
    Feature 6: Scroll Reveal Animations
-   Feature 8: Dynamic UI Effects (Auto-Typing, Scroll-Scroll)
+   Feature 8: Dynamic UI Effects (Typing & Scroll Bar)
    ============================================================
 */
 
@@ -20,8 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * toggleTheme logic:
      * 1. Check current body state.
      * 2. Toggle the 'dark-mode' class.
-     * 3. Save the *new* state into localStorage so it persists 
-     *    across page reloads or sibling pages.
+     * 3. Save the preference to localStorage (Module 5 persistence).
      */
     themeToggle.addEventListener('click', () => {
         const isDarkMode = body.classList.toggle('dark-mode');
@@ -31,21 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------
     // FEATURE 2: RESPONSIVE NAVIGATION
     // ---------------------------------------------------------
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
 
     /**
      * mobileMenu logic:
      * Open/Close the mobile drawer when the burger icon is clicked.
      * Also close it if any individual link is clicked (UX best practice).
      */
-    mobileMenu.addEventListener('click', () => {
+    mobileMenuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
+        mobileMenuBtn.classList.toggle('open');
     });
 
     // ---------------------------------------------------------
-    // FEATURE 5: FORM VALIDATION (Module 5 concepts)
+    // FEATURE 5: FORM VALIDATION
     // ---------------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -57,30 +56,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email');
             const message = document.getElementById('message');
 
-            // Name Validation (Length Check)
-            if (name.value.trim().length < 3) {
-                name.parentElement.classList.add('invalid');
+            /**
+             * Function to show error state on parent group
+             */
+            const setError = (element, message) => {
+                element.parentElement.classList.add('invalid');
                 isValid = false;
-            } else {
-                name.parentElement.classList.remove('invalid');
-            }
+            };
+
+            // Reset all errors
+            document.querySelectorAll('.form-group').forEach(group => group.classList.remove('invalid'));
+
+            // Name Validation
+            if (name.value.trim().length < 3) setError(name);
 
             // Email Validation (Regex Check)
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email.value.trim())) {
-                email.parentElement.classList.add('invalid');
-                isValid = false;
-            } else {
-                email.parentElement.classList.remove('invalid');
-            }
+            if (!emailRegex.test(email.value.trim())) setError(email);
 
             // Message Validation
-            if (message.value.trim().length < 10) {
-                message.parentElement.classList.add('invalid');
-                isValid = false;
-            } else {
-                message.parentElement.classList.remove('invalid');
-            }
+            if (message.value.trim().length < 10) setError(message);
 
             /**
              * If isValid is false, we prevent the form from submitting
@@ -93,11 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---------------------------------------------------------
-    // FEATURE 8: DYNAMIC UI EFFECTS (DRY Typing Effect)
+    // FEATURE 8: TYPING EFFECT (Personal Branding)
     // ---------------------------------------------------------
     const typingSpan = document.getElementById('typing-text');
     if (typingSpan) {
-        const words = ["U.S. Army Veteran", "Future MSBA Student", "Clean Code Advocate", "Problem-Solver"];
+        const words = ["Arabic Linguist", "#1 in Class", "4 Dialects Mastered", "Civil Affairs Specialist", "Software Engineer"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -112,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!isDeleting && charIndex > currentWord.length) {
                 isDeleting = true;
-                setTimeout(type, 1500); // Pause at end of word
+                setTimeout(type, 2000); // Wait at end
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
@@ -121,37 +116,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(type, isDeleting ? 50 : 100);
             }
         }
-        type(); // Initialization call
+        type(); // Initialization
     }
 
     // ---------------------------------------------------------
     // FEATURE 6: SCROLL REVEAL (Intersection Observer)
     // ---------------------------------------------------------
-    const observerOptions = { threshold: 0.1 };
+    const revealElements = document.querySelectorAll('section, .proof-card, .project-card');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('reveal');
-                observer.unobserve(entry.target); // Trigger only once
+                observer.unobserve(entry.target); // Reveal only once
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    // Watch all major sections
-    document.querySelectorAll('section, .proof-card, .project-card').forEach(el => {
-        observer.observe(el);
-    });
-
-    // ---------------------------------------------------------
-    // NAVBAR SCROLL EFFECT (Feature 8)
-    // ---------------------------------------------------------
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-
+    revealElements.forEach(el => observer.observe(el));
 });
