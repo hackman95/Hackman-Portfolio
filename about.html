@@ -4,103 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Koran Hackman</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <!-- Theme Persistence Script -->
+<body class="light-mode">
+    <!-- Theme Toggle (Feature 1) Logic Persistence -->
     <script>
         const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+        document.body.className = savedTheme + '-mode';
     </script>
 
+    <!-- Navigation -->
     <header class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">K. Hackman</a>
-            <nav class="nav-links">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">KH<span>.</span></a>
+            <nav class="nav-links" id="nav-links">
                 <a href="index.html">Home</a>
                 <a href="about.html" class="active">About</a>
                 <a href="projects.html">Projects</a>
                 <a href="contact.html">Contact</a>
-                <button id="theme-toggle" aria-label="Toggle Night Mode">
-                    <span class="sun-icon">☀️</span>
-                    <span class="moon-icon">🌙</span>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
                 </button>
             </nav>
-            <button class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </button>
         </div>
     </header>
 
-    <main class="container">
-        <section class="about-hero">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="images/samira1.jpeg" alt="Koran Hackman" class="profile-img shadow">
-                </div>
-                <div class="about-text">
-                    <h1 class="section-title">My Journey</h1>
-                    <p class="italic highlight">"From Service to Software."</p>
+    <!-- Main Content -->
+    <main class="container py-8">
+        <section class="about-hero grid-2">
+            <div class="about-text">
+                <h1 class="section-title">The Transition</h1>
+                <p class="highlight">Arabic Linguist | Civil Affairs Specialist | Software Engineer</p>
+                <div class="about-description">
                     <p>
-                        I am Koran (Hack) Hackman, a 31-year-old Army veteran transitioning into the world of Software Engineering. 
-                        My military background instilled a discipline for precision and a passion for complex problem-solving—traits 
-                        that I now apply to building robust, accessible web applications.
+                        My journey began in military service, where I served as a <strong>Civil Affairs Specialist</strong> before specializing as an 
+                        <strong>Arabic Linguist</strong>. I graduated #1 in my class, mastering 4 distinct dialects—a feat that required intense discipline, 
+                        analytical depth, and a relentless focus on precision.
                     </p>
                     <p>
-                        I am preparing to start an MSBA program at WashU in Fall 2026. My goal is to bridge the gap between 
-                        raw data and actionable insights using modern full-stack technologies.
+                        Today, I apply that same discipline to <strong>Software Engineering</strong>. Translating complex human language dialects taught me 
+                        how to decompose intricate systems into logical components, a skill that translates perfectly into writing clean, maintainable code.
                     </p>
-                    <div class="military-badge">
-                        <span>🇺🇸 U.S. Army Veteran</span>
-                    </div>
+                    <p>
+                        I am currently completing the <strong>Vets Who Code</strong> prework program, preparing for a career in full-stack development 
+                        where technical excellence meets strategic mission goals.
+                    </p>
                 </div>
+            </div>
+            <div class="about-image">
+                <img src="images/profile.jpg" alt="Koran Hackman" class="profile-img shadow-minimal">
             </div>
         </section>
 
-        <!-- Setup Proof Section (Required for VWC Capstone) -->
-        <section class="setup-proof">
-            <h2 class="section-title">Proof of Tools</h2>
+        <!-- Proof of Tools Section (Required for Capstone) -->
+        <section class="proof-of-tools py-8">
+            <h2 class="section-title">Environment Setup & Tools</h2>
             <p class="subtitle">Evidence of environment configuration and module completion.</p>
-            
             <div class="proof-grid">
-                <div class="proof-card">
-                    <h3>1. Terminal Customization</h3>
-                    <p>Demonstrating custom ZSH aliases configured in Module 1.</p>
-                    <div class="image-zoom-container">
-                        <img src="images/setup-terminal.png" alt="Terminal Aliases Screenshot">
+                <!-- Terminal Setup (Module 1) -->
+                <article class="proof-card">
+                    <div class="proof-header">
+                        <span class="step-num">01</span>
+                        <h3>Terminal & Aliases</h3>
                     </div>
-                </div>
-                <div class="proof-card">
-                    <h3>2. GitHub Repository</h3>
-                    <p>My first repository, demonstrating Git workflow and branching.</p>
-                    <div class="image-zoom-container">
-                        <img src="images/setup-github-repo.png" alt="GitHub Repository Screenshot">
+                    <p>Demonstrating custom ZSH aliases configured in Module 1 for efficient workflow management.</p>
+                    <img src="images/setup-terminal.png" alt="Terminal Aliases Screenshot" class="proof-img">
+                </article>
+
+                <!-- GitHub Repo (Module 2) -->
+                <article class="proof-card">
+                    <div class="proof-header">
+                        <span class="step-num">02</span>
+                        <h3>Git Architecture</h3>
                     </div>
-                </div>
-                <div class="proof-card">
-                    <h3>3. GitHub Profile</h3>
-                    <p>Activity history and personalized profile overview.</p>
-                    <div class="image-zoom-container">
-                        <img src="images/setup-github-profile.png" alt="GitHub Profile Screenshot">
+                    <p>My first professional repository, demonstrating branching, committing, and remote management.</p>
+                    <img src="images/setup-github-repo.png" alt="GitHub Repository Screenshot" class="proof-img">
+                </article>
+
+                <!-- GitHub Profile -->
+                <article class="proof-card">
+                    <div class="proof-header">
+                        <span class="step-num">03</span>
+                        <h3>GitHub Ecosystem</h3>
                     </div>
-                </div>
+                    <p>Active profile overview showing contribution history and project organization.</p>
+                    <img src="images/setup-github-profile.png" alt="GitHub Profile Screenshot" class="proof-img">
+                </article>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
-            <p>&copy; 2026 Koran Hackman. Veterans Who Code Prework.</p>
+            <p>&copy; 2026 Koran (Hack) Hackman. All Rights Reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/hackman95">GitHub</a>
-                <a href="#">LinkedIn</a>
+                <a href="https://github.com/hackman95" target="_blank">GitHub</a>
+                <a href="#" target="_blank">LinkedIn</a>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/script.js"></script>
 </body>
 </html>
