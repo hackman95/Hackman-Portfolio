@@ -171,11 +171,8 @@ ul { list-style: none; }
 .profile-img {
     width: 100%;
     border-radius: var(--border-radius);
-    filter: grayscale(100%); 
     transition: var(--transition);
 }
-
-.profile-img:hover { filter: grayscale(0%); }
 
 /* Layout Helpers */
 .py-8 { padding: 4rem 0; }
