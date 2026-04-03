@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Koran Hackman</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Theme Persistence Script -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+    </script>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">K. Hackman</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle Night Mode">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+            <button class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about-hero">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="images/samira1.jpeg" alt="Koran Hackman" class="profile-img shadow">
+                </div>
+                <div class="about-text">
+                    <h1 class="section-title">My Journey</h1>
+                    <p class="italic highlight">"From Service to Software."</p>
+                    <p>
+                        I am Koran (Hack) Hackman, a 31-year-old Army veteran transitioning into the world of Software Engineering. 
+                        My military background instilled a discipline for precision and a passion for complex problem-solving—traits 
+                        that I now apply to building robust, accessible web applications.
+                    </p>
+                    <p>
+                        I am preparing to start an MSBA program at WashU in Fall 2026. My goal is to bridge the gap between 
+                        raw data and actionable insights using modern full-stack technologies.
+                    </p>
+                    <div class="military-badge">
+                        <span>🇺🇸 U.S. Army Veteran</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Proof Section (Required for VWC Capstone) -->
+        <section class="setup-proof">
+            <h2 class="section-title">Proof of Tools</h2>
+            <p class="subtitle">Evidence of environment configuration and module completion.</p>
+            
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <h3>1. Terminal Customization</h3>
+                    <p>Demonstrating custom ZSH aliases configured in Module 1.</p>
+                    <div class="image-zoom-container">
+                        <img src="images/setup-terminal.png" alt="Terminal Aliases Screenshot">
+                    </div>
+                </div>
+                <div class="proof-card">
+                    <h3>2. GitHub Repository</h3>
+                    <p>My first repository, demonstrating Git workflow and branching.</p>
+                    <div class="image-zoom-container">
+                        <img src="images/setup-github-repo.png" alt="GitHub Repository Screenshot">
+                    </div>
+                </div>
+                <div class="proof-card">
+                    <h3>3. GitHub Profile</h3>
+                    <p>Activity history and personalized profile overview.</p>
+                    <div class="image-zoom-container">
+                        <img src="images/setup-github-profile.png" alt="GitHub Profile Screenshot">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Koran Hackman. Veterans Who Code Prework.</p>
+            <div class="social-links">
+                <a href="https://github.com/hackman95">GitHub</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

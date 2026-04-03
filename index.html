@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koran Hackman | Software Engineer Portfolio</title>
+    <!-- Google Fonts for Classic Academic Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Theme Persistence: Feature 1 Helper -->
+    <script>
+        // Check localStorage immediately to prevent "flash of light mode"
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+    </script>
+
+    <!-- Navigation: Feature 2 (Responsive JS Toggle) -->
+    <header class="navbar" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">K. Hackman</a>
+            <nav class="nav-links" id="nav-menu">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle Night Mode">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 id="hero-title">Koran "Hack" Hackman</h1>
+                <p class="subtitle italic">Full Stack Engineer & Military Veteran</p>
+                <div class="hero-text-container">
+                    <!-- Feature 6: Animated Text (Typed Effect) -->
+                    <p id="typing-text"></p>
+                </div>
+                <div class="cta-group">
+                    <a href="projects.html" class="btn btn-primary">View My Work</a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>SCROLL</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- Brief Skills Overview (Taught in Module 2/4) -->
+        <section class="skills-mini container">
+            <h2 class="section-title">The Foundation</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Semantic HTML5</h3>
+                    <p>Clean, accessible, and meaningful structure.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Modern CSS3</h3>
+                    <p>Flexbox, Grid, and Responsive Design.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Vanilla JavaScript</h3>
+                    <p>Dynamic rendering and interactive logic.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Koran Hackman. Built with Clean Code standards for Vets Who Code.</p>
+            <div class="social-links">
+                <a href="https://github.com/hackman95" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
