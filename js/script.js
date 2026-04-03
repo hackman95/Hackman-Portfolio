@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dynamic typing animation in Hero
     const typingSpan = document.getElementById('typing-text');
     if (typingSpan) {
-        const words = ["Arabic Linguist", "High Honor Grad", "MBA Graduate", "MSBA Candidate", "Civil Affairs Specialist", "Software Engineer"];
+        const words = ["Business Analyst", "Data Analyst", "Strategic Consultant", "Business Intelligence Specialist", "MBA/MSBA Graduate"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
