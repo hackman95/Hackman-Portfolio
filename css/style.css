@@ -1,45 +1,41 @@
 /* 
-   ============================================================
-   VWC PREWORK CAPSTONE — MINIMALIST PROFESSIONAL CSS
-   Style: High-End Minimalist Modern
-   Author: Koran Hackman (Arabic Linguist & Software Engineer)
-   ============================================================
+   Koran Hackman - Portfolio Styles
+   Minimalist Professional Aesthetics
 */
 
-/* --- 1. CSS CUSTOM PROPERTIES (Theme Persistence Feature 1) --- */
 :root {
-    /* Day Mode Palette */
+    /* Day Mode */
     --color-bg: #FFFFFF;
     --color-surface: #F9FAFB;
-    --color-text-primary: #111827; /* Dark Slate Black */
-    --color-text-secondary: #4B5563; /* Grey Slate */
-    --color-accent: #1B3022; /* Deep Forest Green (VWC/Military Accent) */
+    --color-text-primary: #111827; 
+    --color-text-secondary: #4B5563;
+    --color-accent: #1B3022; 
     --color-accent-hover: #13241A;
     --color-border: #E5E7EB;
     --color-shadow: rgba(0, 0, 0, 0.05);
 
-    /* Typography */
+    /* Fonts */
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-    /* Spacing & Borders */
+    /* Metrics */
     --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --border-radius: 4px;
 }
 
-/* Night Mode (Feature 1 Logic) */
+/* Dark mode theme variables */
 .dark-mode {
-    --color-bg: #0F172A; /* Deep Navy Black */
+    --color-bg: #0F172A;
     --color-surface: #1E293B;
     --color-text-primary: #F9FAFB;
     --color-text-secondary: #9CA3AF;
-    --color-accent: #34D399; /* Emerald/Forest Green Accent for Dark Mode */
+    --color-accent: #34D399; 
     --color-accent-hover: #10B981;
     --color-border: #334155;
     --color-shadow: rgba(0, 0, 0, 0.3);
 }
 
-/* --- 2. BASE RESET --- */
+/* Basic Reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -65,7 +61,7 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; transition: var(--transition); }
 ul { list-style: none; }
 
-/* --- 3. NAVIGATION (Feature 2 & 8) --- */
+/* Navigation */
 .navbar {
     height: 70px;
     border-bottom: 1px solid var(--color-border);
@@ -107,7 +103,6 @@ ul { list-style: none; }
     color: var(--color-text-primary);
 }
 
-/* Mobile Nav (Feature 2) */
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -124,7 +119,7 @@ ul { list-style: none; }
     transition: var(--transition);
 }
 
-/* --- 4. HERO SECTION (Feature 8 Effect) --- */
+/* Hero Section */
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -176,13 +171,13 @@ ul { list-style: none; }
 .profile-img {
     width: 100%;
     border-radius: var(--border-radius);
-    filter: grayscale(100%); /* Minimalist aesthetic */
+    filter: grayscale(100%); 
     transition: var(--transition);
 }
 
 .profile-img:hover { filter: grayscale(0%); }
 
-/* --- 5. ABOUT PAGE --- */
+/* Layout Helpers */
 .py-8 { padding: 4rem 0; }
 .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
 .section-title { font-size: 2rem; margin-bottom: 1rem; }
@@ -205,7 +200,7 @@ ul { list-style: none; }
 .proof-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
 .step-num { font-family: var(--font-mono); font-weight: 800; color: var(--color-accent); font-size: 1.5rem; opacity: 0.3; }
 
-/* --- 6. PROJECTS (Feature 3 Proof) --- */
+/* Grid Layouts */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -231,7 +226,7 @@ ul { list-style: none; }
 
 .filter-btn.active { background: var(--color-text-primary); color: white; border-color: var(--color-text-primary); }
 
-/* --- 7. CONTACT (Feature 5 Validation UI) --- */
+/* Form Styles */
 .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
 .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
 .form-group label { font-size: 0.8rem; font-weight: 700; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
@@ -241,7 +236,7 @@ ul { list-style: none; }
 .form-group.invalid input, .form-group.invalid textarea { border-color: #dc2626; }
 .form-group.invalid .error-msg { display: block; }
 
-/* --- 8. RESPONSIVE QUERIES --- */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
     .hero-image { order: -1; max-width: 300px; margin: 0 auto; }
@@ -265,6 +260,5 @@ ul { list-style: none; }
     .about-image { margin: 0 auto; }
 }
 
-/* Animations Artifacts */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .reveal { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }

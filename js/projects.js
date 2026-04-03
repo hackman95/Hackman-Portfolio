@@ -1,23 +1,9 @@
-/* 
-   ============================================================
-   VWC PREWORK CAPSTONE — DYNAMIC PROJECT RENDERING
-   Feature 3: Custom Project Rendering from Script Objects
-   Feature 4: Project Filtering (Minimalist Design)
-   ============================================================
-*/
-
-/**
- * Project Data Array
- * Rationale: Storing data in a separate array follows the Clean Code principle 
- * of separating data from presentation (logic vs template).
- * This allows us to scale the portfolio without touching the HTML shell.
- */
 const projects = [
     {
         id: 1,
         title: "Semantic HTML Architecture",
         category: "CSS",
-        description: "A conversion of a complex layout into high-accessibility semantic HTML5 for VWC Module 4.",
+        description: "Conversion of a complex layout into high-accessibility semantic HTML5 for VWC Module 4.",
         image: "images/project-semantic.png",
         link: "https://github.com/hackman95/Semantic-HTML",
         tags: ["HTML5", "Accessibility"]
@@ -26,14 +12,14 @@ const projects = [
         id: 2,
         title: "Flexbox Grid System",
         category: "CSS",
-        description: "Mobile-first landing page layout built strictly with modern CSS Flexbox grid systems.",
+        description: "Mobile-first landing page layout built with modern CSS Flexbox grid systems.",
         image: "images/project-flexbox.png",
         link: "https://github.com/hackman95/Flexbox-Layout",
         tags: ["Flexbox", "Responsive"]
     },
     {
         id: 3,
-        title: "JavaScript logic challenges",
+        title: "JavaScript Logic Challenges",
         category: "JavaScript",
         description: "Collection of logic puzzles including reverseStrings, palindromes, and array manipulation.",
         image: "images/project-js.png",
@@ -44,35 +30,24 @@ const projects = [
         id: 4,
         title: "Clean Design Portfolio",
         category: "CSS",
-        description: "Replicating a high-end minimalist professional design for the VWC Capstone.",
+        description: "Replicating a minimalist professional design for the VWC Capstone.",
         image: "images/project-minimal.png", 
         link: "https://github.com/hackman95/Hackman-Portfolio",
         tags: ["UI/UX", "Minimalism"]
     }
 ];
 
-/**
- * renderProjects Function
- * @param {Array} projectsToRender - The subset of project objects to display 
- * 
- * Logic:
- * 1. Clear the target container to prevent duplicate elements.
- * 2. Loop through the array using 'forEach' (Module 6 array method).
- * 3. Create DOM elements via 'template strings' for readability.
- * 4. Append to the layout.
- */
 function renderProjects(projectsToRender) {
     const grid = document.getElementById('projects-grid');
-    if (!grid) return; // Guard clause if on the wrong page
+    if (!grid) return;
 
-    grid.innerHTML = ''; // Clear container
+    grid.innerHTML = '';
 
     projectsToRender.forEach(project => {
         const card = document.createElement('article');
         card.className = 'project-card shadow-minimal';
         card.setAttribute('data-id', project.id);
         
-        // Note: Using Template Literals from ES6 (taught in Module 6)
         card.innerHTML = `
             <div class="project-img-wrapper">
                 <img src="${project.image}" alt="${project.title}" onerror="this.src='https://placehold.co/600x400?text=${project.title}'">
@@ -94,21 +69,14 @@ function renderProjects(projectsToRender) {
     });
 }
 
-/**
- * Feature 4: Filter Interaction
- * Logic:
- * 1. Attach event listeners to filter buttons.
- * 2. Use 'filter' method (Module 6) to select specific categories.
- * 3. Re-render the grid based on the selection.
- */
 function initFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     if (!filterButtons) return;
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // UI Feedback: Toggle active class
-            document.querySelector('.filter-btn.active').classList.remove('active');
+            const currentActive = document.querySelector('.filter-btn.active');
+            if (currentActive) currentActive.classList.remove('active');
             btn.classList.add('active');
 
             const filterValue = btn.getAttribute('data-filter');
@@ -123,7 +91,7 @@ function initFilters() {
     });
 }
 
-// Global scope check so render call happens when script loads on projects.html
+// Initial setup from script.js logic if DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('projects-grid')) {
         renderProjects(projects);
