@@ -4,92 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Koran Hackman</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <!-- Theme Persistence Script -->
+<body class="light-mode">
+    <!-- Theme Toggle (Feature 1) Logic Persistence -->
     <script>
         const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+        document.body.className = savedTheme + '-mode';
     </script>
 
+    <!-- Navigation -->
     <header class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">K. Hackman</a>
-            <nav class="nav-links">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">KH<span>.</span></a>
+            <nav class="nav-links" id="nav-links">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="projects.html">Projects</a>
                 <a href="contact.html" class="active">Contact</a>
-                <button id="theme-toggle" aria-label="Toggle Night Mode">
-                    <span class="sun-icon">☀️</span>
-                    <span class="moon-icon">🌙</span>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
                 </button>
             </nav>
-            <button class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </button>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="container py-8">
         <section class="contact-header">
             <h1 class="section-title">Get in Touch</h1>
-            <p class="subtitle italic">Whether it's a project collaboration or just a professional "Hello."</p>
+            <p class="subtitle">Whether it's a project collaboration or a professional inquiry—reach out.</p>
         </section>
 
-        <section class="contact-content grid-2">
+        <section class="contact-grid grid-2 py-8">
             <div class="contact-info">
                 <h3>Contact Details</h3>
-                <p>Feel free to reach out via the form or through my professional networks.</p>
-                
-                <ul class="contact-list">
+                <p>Feel free to connect via the form or my social networks. I am always open to discussing tech, linguistics, or complex operations.</p>
+                <ul class="contact-details-list">
                     <li><strong>Email:</strong> koran.hackman@email.com</li>
                     <li><strong>Location:</strong> St. Louis, MO</li>
-                    <li><strong>Military:</strong> U.S. Army Veteran</li>
+                    <li><strong>Military:</strong> Arabic Linguist | Civil Affairs Specialist</li>
                 </ul>
-
-                <div class="contact-social">
-                    <a href="https://github.com/hackman95" class="social-icon">GitHub</a>
-                    <a href="https://linkedin.com/" class="social-icon">LinkedIn</a>
-                </div>
             </div>
 
             <!-- Feature 5: Form Handling with JS Validation -->
             <form id="contact-form" action="https://formspree.io/f/mqojrjrw" method="POST" class="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Name" required aria-required="true">
                     <span class="error-msg" id="name-error">Name must be at least 3 characters.</span>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required aria-required="true">
                     <span class="error-msg" id="email-error">Please enter a valid email address.</span>
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Message" required aria-required="true"></textarea>
                     <span class="error-msg" id="message-error">Message must be at least 10 characters.</span>
                 </div>
                 
-                <button type="submit" class="btn btn-primary" id="submit-btn">Send Message &rarr;</button>
+                <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
                 <div id="form-status" class="form-status"></div>
             </form>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
-            <p>&copy; 2026 Koran Hackman. Built for VWC Prework.</p>
+            <p>&copy; 2026 Koran Hackman. Built for Vets Who Code Portfolio.</p>
+            <div class="social-links">
+                <a href="https://github.com/hackman95" target="_blank">GitHub</a>
+                <a href="#" target="_blank">LinkedIn</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/script.js"></script>
 </body>
 </html>
