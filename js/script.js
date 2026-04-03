@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------
     const typingSpan = document.getElementById('typing-text');
     if (typingSpan) {
-        const words = ["Arabic Linguist", "#1 in Class", "4 Dialects Mastered", "Civil Affairs Specialist", "Software Engineer"];
+        const words = ["Arabic Linguist", "High Honor Grad", "MBA Graduate", "MSBA Candidate", "Civil Affairs Specialist", "Software Engineer"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
