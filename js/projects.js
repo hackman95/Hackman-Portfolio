@@ -2,7 +2,7 @@
    ============================================================
    VWC PREWORK CAPSTONE — DYNAMIC PROJECT RENDERING
    Feature 3: Custom Project Rendering from Script Objects
-   Feature 4: Project Filtering (Academic Categories)
+   Feature 4: Project Filtering (Minimalist Design)
    ============================================================
 */
 
@@ -15,16 +15,16 @@
 const projects = [
     {
         id: 1,
-        title: "Semantic HTML Practice",
+        title: "Semantic HTML Architecture",
         category: "CSS",
-        description: "A conversion of a generic layout into high-accessibility semantic HTML5 for VWC Module 4.",
-        image: "images/project-semantic.png", // Corrected naming
-        link: "https://github.com/hackman95/Semantic-HTML", // Consistent profile
+        description: "A conversion of a complex layout into high-accessibility semantic HTML5 for VWC Module 4.",
+        image: "images/project-semantic.png",
+        link: "https://github.com/hackman95/Semantic-HTML",
         tags: ["HTML5", "Accessibility"]
     },
     {
         id: 2,
-        title: "Flexbox Landing Page",
+        title: "Flexbox Grid System",
         category: "CSS",
         description: "Mobile-first landing page layout built strictly with modern CSS Flexbox grid systems.",
         image: "images/project-flexbox.png",
@@ -33,7 +33,7 @@ const projects = [
     },
     {
         id: 3,
-        title: "JS Challenge Suite",
+        title: "JavaScript logic challenges",
         category: "JavaScript",
         description: "Collection of logic puzzles including reverseStrings, palindromes, and array manipulation.",
         image: "images/project-js.png",
@@ -42,12 +42,12 @@ const projects = [
     },
     {
         id: 4,
-        title: "Orion UI Clone",
+        title: "Clean Design Portfolio",
         category: "CSS",
-        description: "Replicating the 'Classic Academic' theme of the Orion coding application.",
-        image: "images/project-orion.png",
-        link: "https://github.com/hackman95/Orion-Clone",
-        tags: ["UI/UX", "Theming"]
+        description: "Replicating a high-end minimalist professional design for the VWC Capstone.",
+        image: "images/project-minimal.png", 
+        link: "https://github.com/hackman95/Hackman-Portfolio",
+        tags: ["UI/UX", "Minimalism"]
     }
 ];
 
@@ -69,7 +69,7 @@ function renderProjects(projectsToRender) {
 
     projectsToRender.forEach(project => {
         const card = document.createElement('article');
-        card.className = 'project-card shadow';
+        card.className = 'project-card shadow-minimal';
         card.setAttribute('data-id', project.id);
         
         // Note: Using Template Literals from ES6 (taught in Module 6)
@@ -78,14 +78,14 @@ function renderProjects(projectsToRender) {
                 <img src="${project.image}" alt="${project.title}" onerror="this.src='https://placehold.co/600x400?text=${project.title}'">
             </div>
             <div class="project-content">
-                <span class="category-tag">${project.category}</span>
+                <span class="category-badge">${project.category}</span>
                 <h3 class="project-title">${project.title}</h3>
                 <p>${project.description}</p>
                 <div class="tag-group">
-                    ${project.tags.map(tag => `<span>#${tag}</span>`).join('')}
+                    ${project.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
                 </div>
                 <a href="${project.link}" class="project-link" target="_blank" rel="noopener">
-                    View Repository &rarr;
+                    Repository &rarr;
                 </a>
             </div>
         `;
